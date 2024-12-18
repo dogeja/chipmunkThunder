@@ -1,0 +1,14 @@
+﻿{
+  "name": "acorn-collector-desktop",
+  "version": "0.1.0",
+  "main": "dist/main/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:electron": "tsc -p tsconfig.electron.json",
+    "preview": "vite preview",
+    "electron:dev": "npm run build:electron && cross-env ELECTRON_START_URL=http://localhost:5173 concurrently \"cross-env BROWSER=none vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "electron:build": "npm run build:electron && vite build && electron-builder",
+    "start": "electron ."
+  }
+}
